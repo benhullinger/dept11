@@ -1,0 +1,91 @@
+/* Panel Top 0 (#06) */
+img
+/* Slide 1 (#03) */
+svg mask #rectmask {
+    fill: rgba(255, 255, 255, 1);
+}
+
+svg > #rectmask {
+    fill: black;
+    -webkit-mask: url(#mask);
+    mask: url(#mask);
+}
+
+svg > #fade {
+  opacity: 0;
+  fill: black;
+   animation: fadeOut ease 5s;
+  -webkit-animation: fadeOut ease 5s;
+  -moz-animation: fadeOut ease 5s;
+  -o-animation: fadeOut ease 5s;
+  -ms-animation: fadeOut ease 5s;
+}
+
+video {
+  position: absolute;
+  min-width: 100%;
+  min-height: 100%;
+  top: 50%; 
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  z-index: -1;
+  overflow: hidden;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+  }
+}
+
+@-moz-keyframes fadeOut {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+  }
+}
+
+@-webkit-keyframes fadeOut {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+  }
+}
+
+@-o-keyframes fadeOut {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+  }
+}
+
+@-ms-keyframes fadeOut {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+}
+/* Slide 1 (#37) */
+video {
+  position: absolute;
+  min-width: 100%;
+  min-height: 100%;
+  opacity: .35;
+  top: 50%; 
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  z-index: -1;
+  overflow: hidden;
+}
