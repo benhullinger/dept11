@@ -11,6 +11,10 @@ svg > #rectmask {
     mask: url(#mask);
 }
 
+h1 {
+  font-size: 121px;
+}
+
 svg > #fade {
   opacity: 0;
   fill: black;
