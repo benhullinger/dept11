@@ -1,5 +1,3 @@
-/* Panel Top 0 (#06) */
-img
 /* Slide 1 (#03) */
 svg mask #rectmask {
     fill: rgba(255, 255, 255, 1);
@@ -9,10 +7,6 @@ svg > #rectmask {
     fill: black;
     -webkit-mask: url(#mask);
     mask: url(#mask);
-}
-
-h1 {
-  font-size: 121px;
 }
 
 svg > #fade {
