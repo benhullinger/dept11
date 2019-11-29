@@ -1,7 +1,7 @@
 /*
 
    _____ _       _                 _  _____
-  / ___/| (*)   | |               | |/ ___/  v 5.0
+  / ___/| (*)   | |               | |/ ___/  v 5.0.1
  | (___ | |_  __| | ___ ____      | | (___
   \___ \| | |/ _` |/ _ / __/  _   | |\___ \
   ____) | | | (_| |  __\__ \ | |__| |____) |
@@ -79,7 +79,6 @@ $(document).ready(function() { "use strict";
     window.slideSpeed = 1400;
     window.cleanupDelay = 2000;
     window.effectSpeed = 1400;
-    window.effectOffset = 400;
     window.scrollSpeed = .8;
     window.effectOffset = 600;
   }
@@ -360,7 +359,7 @@ $(document).ready(function() { "use strict";
 
       $(".slide.selected [class*='ae-']").one('webkitTransitionEnd oTransitionEnd msTransitionEnd transitionend', function(){
         var $this = $(this);
-        setTimeout(function(){ $this.addClass("done"); },500);
+        setTimeout(function(){ $this.addClass("done"); },window.effectOffset);
       });
     }
     //end showSlide();
@@ -390,7 +389,7 @@ $(document).ready(function() { "use strict";
       var requestedElement = $('.slide:eq('+ (window.stage - 1) +')'),
           finalPosition = $(requestedElement).offset().top;
 
-      $('html,body').stop().clearQueue().animate({scrollTop:finalPosition},1000);
+      $('html,body').stop().clearQueue().animate({scrollTop:finalPosition},window.effectSpeed);
     } else {
       if ((n !== window.stage)&&( n <= window.stages)){
         if (window.inAction !== 1){
@@ -630,7 +629,7 @@ $(document).ready(function() { "use strict";
   //scroll or simplified mobile
   if ( (window.isMobile && window.isSimplifiedMobile) || window.isScroll ){
     $(window).on('DOMMouseScroll mousewheel scroll touchmove load', function(){
-      updateScroll();
+      if (window.updateScroll != 0) updateScroll();
     });
   }
 
@@ -1851,6 +1850,7 @@ $(document).ready(function() { "use strict";
         dropdownID = $this.data('dropdown-id'),
         $element = $('.dropdown[data-dropdown-id="' + dropdownID + '"]'),
         elementPosition = $this.data('dropdown-position') ? $this.data('dropdown-position') : $element.attr('class'),
+        setPosition = $element.data('dropdown-set-position') == false ? false : true,
         elementPosition = elementPosition.split(' ');
 
     //hide
@@ -1878,7 +1878,11 @@ $(document).ready(function() { "use strict";
       $element.removeClass('right left').addClass('center');
     }
 
-    $element.addClass('show').css('top',offsetY).css('left',offsetX);
+    $element.addClass('show');
+
+    if (setPosition) {
+      $element.css('top',offsetY).css('left',offsetX);
+    }
     $html.addClass('dropdownShown dropdown_' + dropdownID);
     window.dropdownShown = true;
   }

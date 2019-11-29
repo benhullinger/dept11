@@ -864,7 +864,7 @@ svg {
 	input[type="number"],
 	select {
 		height:52px;
-		line-height:50px;
+		//line-height:50px;
 		padding: 0 16px; 
 	}
 
@@ -1674,6 +1674,7 @@ html.mobile .showForMobileInline {
 		width: 18px;
 		height: 18px;
   	vertical-align: text-bottom;
+  	transition: .35s;
 	}
 
 	img {
@@ -2149,12 +2150,17 @@ html.mobile .showForMobileInline {
 	}
 
 	.slides.whiteSlide .stroke & li:hover:after {
-		background: #303030;
+		background: $default-dark-color;
 	}
 
 	.slides.whiteSlide .stroke & li.selected:after {
-		border-color: #303030;
+		border-color: $default-dark-color;
 		background: $default-dark-color;
+	}
+
+	.slides.whiteSlide &.numbers li:after {
+	  color: $default-dark-color;
+  	text-shadow: 0 0 2px #fff !important;
 	}
 
 	.panel &,
@@ -2183,6 +2189,29 @@ html.mobile .showForMobileInline {
 			}
 		}
 	}
+
+	/* Navigation style = numbers */
+
+	&.numbers{
+		ul { 
+		  counter-reset: item;
+		  list-style-type: none;
+		}
+		li { display: block; }
+		li:after { 
+		  content: counter(item);
+		  counter-increment: item;
+		  background: none !important;
+		  box-shadow: none !important;
+		  text-shadow: 0 0 2px $default-dark-color;
+		  font-weight: bold;
+		  font-size: 20px;
+		  line-height: 0.7;
+		  text-align: center;
+		  transition: 0.25s;
+		}
+	}
+
 }
 /* End of Side */
 
@@ -2415,6 +2444,10 @@ html.mobile .showForMobileInline {
 	transform: translateX(100%);
 	overflow-y: auto;
 	-webkit-overflow-scrolling: touch;
+
+	html:not(.page-loaded) & {
+		display: none;
+	}
 
 	svg {
 		fill: #fff;
@@ -2665,25 +2698,6 @@ html.mobile .showForMobileInline {
 		overflow-y: auto;
 	}
 
-	// .popupShown &.visible:not(.animated) .popupContent {
-	// 	animation: zoomOut 0.5s 0.25s backwards;
-	// }
-
-	// .popupShown .slow &.visible {
-	// 	animation: fadeIn 1.25s;
-	// }
-
-	// .popupShown .slow &.visible:not(.animated) .popupContent {
-	// 	animation: zoomOut 1s 0.25s backwards;
-	// }
-
-	// .popupShown .fast &.visible {
-	// 	animation: fadeIn 0.5s;
-	// }
-	// .popupShown .fast &.visible .popupContent {
-	// 	animation: zoomOut 0.5s 0.25s backwards;
-	// }
-
 	.close:not(.button) {
 		position: fixed;
 		top: 0;
@@ -2723,15 +2737,11 @@ html.mobile .showForMobileInline {
 		fill: $default-dark-color;
 	}
 
-	.wrap {
+	.container .wrap {
 		padding: 18px 58px;
-
-		&.spaces {
-			padding: 58px;
-		}
 	}
 
-	&.fullscreen .wrap {
+	&.fullscreen .container .wrap {
 		padding: 0;
 	}
 
@@ -2982,7 +2992,7 @@ html.mobile .showForMobileInline {
 .slide:first-child,
 .slide.after {
 	transform: translate3d(0,50%,0);
-	will-change: transform;
+	//will-change: transform;
 }
 
 .slide.before,
@@ -3604,7 +3614,7 @@ $directions: fromBottom fromTop fromLeft fromRight fromCenter fromAbove fromBott
 	.rolling-element {
 	  transition: $slide-speed-normal;
 	  transform: translate3d(0,0,0);
-	  will-change: transform;
+	  //will-change: transform;
 	}
 
 	&.fast .rolling-element {
@@ -3863,7 +3873,9 @@ $directions: fromBottom fromTop fromLeft fromRight fromCenter fromAbove fromBott
 }
 
 .scroll .slide.autoHeight .container,
-.mobile .slide.autoHeight .simplifiedMobile .container {
+.mobile .slide.autoHeight .simplifiedMobile .container,
+.scroll .slide.auto .container,
+.mobile .slide.auto .simplifiedMobile .container {
 	height: auto;
 }
 
@@ -3873,7 +3885,9 @@ $directions: fromBottom fromTop fromLeft fromRight fromCenter fromAbove fromBott
 }
 
 .scroll .slide:not(.autoHeight) .background,
-.mobile .simplifiedMobile .slide:not(.autoHeight) .background {
+.mobile .simplifiedMobile .slide:not(.autoHeight) .background,
+.scroll .slide:not(.auto) .background,
+.mobile .simplifiedMobile .slide:not(.auto) .background  {
 	min-height: 100vh;
 }
 

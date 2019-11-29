@@ -10,13 +10,21 @@
 .overflow-reset { overflow: auto !important;}
 
 //fonts
+.noBorder { border: none !important; }
 .noText { font-size: 0; }
+.noBr, .nobr { white-space: nowrap; }
+.noShadow { box-shadow: none !important; }
+.noHoverShadow:hover, .noShadowHover:hover { box-shadow: none !important; }
 
 //position
-.top, .align-top { vertical-align: top !important;}
-.left, .align-left { text-align: left !important;}
-.right, .align-right { text-align: right !important;}
-.center, .align-center { text-align: center !important;}
+.top { vertical-align: top !important;}
+.left { text-align: left !important;}
+.right { text-align: right !important;}
+.center { text-align: center !important;}
+.align-top { vertical-align: top !important;}
+.align-left { text-align: left !important;}
+.align-right { text-align: right !important;}
+.align-center { text-align: center !important;}
 .middle { vertical-align: middle !important;}
 .bottom { vertical-align: bottom !important;}
 .rtl { direction: rtl; unicode-bidi: embed;}
@@ -44,7 +52,6 @@
 .nowrap { white-space: nowrap;}
 .wide { width: 100% !important;}
 .hidden { display: none; }
-.nobr { white-space: nowrap; }
 
 //move, bitch
 [class*='shift-'] {
@@ -165,9 +172,9 @@ $properties: padding padding-top padding-right padding-bottom padding-left margi
     .#{$property}-#{$n} {
       #{$property}: $value !important;
     }
-    .#{$property}-auto {
-      #{$property}: auto !important;
-    }
+  }
+  .#{$property}-auto {
+    #{$property}: auto !important;
   }
 }
 
@@ -243,7 +250,6 @@ $properties: padding padding-top padding-right padding-bottom padding-left margi
 //cursor behaveour
 .pointer-events { pointer-events: all !important;}
 .disable-pointer-events { pointer-events: none !important;}
-.noHoverShadow:hover, .noShadowHover:hover {box-shadow: none !important;}
 
 .pointer,
 .cursorPointer { cursor: pointer !important;}
@@ -272,7 +278,7 @@ $properties: padding padding-top padding-right padding-bottom padding-left margi
 
 //background
 .pattern .background { background-repeat: repeat; background-size: auto;}
-.attachment-fixed { background-attachment: fixed !important; background-size: cover !important;}
+.attachment-fixed, .attachmentFixed { background-attachment: fixed !important; background-size: cover !important;}
 
 
 .disableClick { pointer-events: none;}

@@ -35,6 +35,7 @@
 	// BASE FONT SIZE
 	$base-font-size:      18px; 
 	$text-increment:      3px;
+	$text-increment-small:1px;
 	
 	// Scaling increment on different screen sizes
 	$increment-desktop:   10px;
@@ -43,25 +44,34 @@
 	$increment-base:      4px;
 	
 	// FONT SIZE FOR HEADINGS
-	$h6-desktop:     summ($base-font-size, multiply($text-increment, 3));	
-	$h6-tablet:      summ($base-font-size, multiply($text-increment, 3));	
-	$h6-phablet:     summ($base-font-size, multiply($text-increment, 2));	
-	$h6-base:        summ($base-font-size, multiply($text-increment, 1));	
-	
-	$h3-desktop:     summ($h6-desktop, $increment-desktop);	
-	$h3-tablet:      summ($h6-tablet, $increment-tablet);	
-	$h3-phablet:     summ($h6-phablet, $increment-phablet);	
-	$h3-base:        summ($h6-base, $increment-base);
 
-	$h2-desktop:     summ($h6-desktop, multiply($increment-desktop,2));	
-	$h2-tablet:      summ($h6-tablet, multiply($increment-tablet,2));	
-	$h2-phablet:     summ($h6-phablet, multiply($increment-phablet,2));	
-	$h2-base:        summ($h6-base, multiply($increment-base,2));
+	$h6-tablet:      summ($base-font-size, multiply($text-increment-small, 2));	
+	$h6-phablet:     summ($base-font-size, multiply($text-increment-small, 2));	
+	$h6-base:        summ($base-font-size, multiply($text-increment-small, 1));	
+
+	$h5-tablet:      summ($base-font-size, multiply($text-increment-small, 6));	
+	$h5-phablet:     summ($base-font-size, multiply($text-increment-small, 4));	
+	$h5-base:        summ($base-font-size, multiply($text-increment-small, 2));	
+
+	$h4-desktop:     summ($base-font-size, multiply($text-increment, 3));	
+	$h4-tablet:      summ($base-font-size, multiply($text-increment, 3));	
+	$h4-phablet:     summ($base-font-size, multiply($text-increment, 2));	
+	$h4-base:        summ($base-font-size, multiply($text-increment, 1));	
 	
-	$h1-desktop:     summ($h6-desktop, multiply($increment-desktop,3));	
-	$h1-tablet:      summ($h6-tablet, multiply($increment-tablet,3));	
-	$h1-phablet:     summ($h6-phablet, multiply($increment-phablet,3));	
-	$h1-base:        summ($h6-base, multiply($increment-base,3));
+	$h3-desktop:     summ($h4-desktop, $increment-desktop);	
+	$h3-tablet:      summ($h4-tablet, $increment-tablet);	
+	$h3-phablet:     summ($h4-phablet, $increment-phablet);	
+	$h3-base:        summ($h4-base, $increment-base);
+
+	$h2-desktop:     summ($h4-desktop, multiply($increment-desktop,2));	
+	$h2-tablet:      summ($h4-tablet, multiply($increment-tablet,2));	
+	$h2-phablet:     summ($h4-phablet, multiply($increment-phablet,2));	
+	$h2-base:        summ($h4-base, multiply($increment-base,2));
+	
+	$h1-desktop:     summ($h4-desktop, multiply($increment-desktop,3));	
+	$h1-tablet:      summ($h4-tablet, multiply($increment-tablet,3));	
+	$h1-phablet:     summ($h4-phablet, multiply($increment-phablet,3));	
+	$h1-base:        summ($h4-base, multiply($increment-base,3));
 
 	// LINE HEIGHT
 	$line-height-body:    1.5;
@@ -172,7 +182,7 @@
 		&.larger   {font-size: summ($base-font-size, multiply($text-increment, 2)); letter-spacing: -0.019em}
 		&.large    {font-size: summ($base-font-size, $text-increment); letter-spacing: -0.011em}
 		&.small    {font-size: subtract($base-font-size, 2); letter-spacing: -0.011em}
-		&.smaller  {font-size: subtract($base-font-size, 4); letter-spacing: -0.06em;}
+		&.smaller  {font-size: subtract($base-font-size, 4); letter-spacing: -0.006em;}
 		&.smallest {font-size: subtract($base-font-size, 6); letter-spacing: 0;}
 		&.micro    {font-size: subtract($base-font-size, 7);}
 	}
@@ -337,12 +347,80 @@
 		}
 	}
 	
-	// .h4, .h5, .h6, .hero{
+	// .h4, .hero{
+	// 	                               font-size: $h4-base;
+	// 	@include media($phone, min){   font-size: $h4-phablet;}
+	// 	@include media($tablet, min){  font-size: $h4-tablet; }
+	// }
+	h4, .h4 {
+		            font-size: $h4-base;
+		            letter-spacing: -0.015em;
+		&.largest  {font-size: summ($h4-base, multiply($text-increment, 3));}
+		&.larger   {font-size: summ($h4-base, multiply($text-increment, 2));}
+		&.large    {font-size: summ($h4-base, multiply($text-increment, 1));}
+		&.small    {font-size: subtract($h4-base, multiply($text-increment, 1));}
+		&.smaller  {font-size: subtract($h4-base, multiply($text-increment, 2));}
+		&.smallest {font-size: subtract($h4-base, multiply($text-increment, 3));}
+		@include media($phone, min){
+			            font-size: $h4-phablet;
+			&.largest  {font-size: summ($h4-phablet, multiply($text-increment, 3));}
+			&.larger   {font-size: summ($h4-phablet, multiply($text-increment, 2));}
+			&.large    {font-size: summ($h4-phablet, multiply($text-increment, 1));}
+			&.small    {font-size: subtract($h4-phablet, multiply($text-increment, 1));}
+			&.smaller  {font-size: subtract($h4-phablet, multiply($text-increment, 2));}
+			&.smallest {font-size: subtract($h4-phablet, multiply($text-increment, 3));}
+		}
+		@include media($tablet, min){
+			            font-size: $h4-tablet;
+			&.largest  {font-size: summ($h4-tablet, multiply($text-increment, 3));}
+			&.larger   {font-size: summ($h4-tablet, multiply($text-increment, 2));}
+			&.large    {font-size: summ($h4-tablet, multiply($text-increment, 1));}
+			&.small    {font-size: subtract($h4-tablet, multiply($text-increment, 1));}
+			&.smaller  {font-size: subtract($h4-tablet, multiply($text-increment, 2));}
+			&.smallest {font-size: subtract($h4-tablet, multiply($text-increment, 3));}
+		}
+	}
+
+	// .h5, h5{
+	// 	                               font-size: $h5-base;
+	// 	@include media($phone, min){   font-size: $h5-phablet;}
+	// 	@include media($tablet, min){  font-size: $h5-tablet; }
+	// }
+	h5, .h5 {
+		            font-size: $h5-base;
+		            letter-spacing: -0.015em;
+		&.largest  {font-size: summ($h5-base, multiply($text-increment, 3));}
+		&.larger   {font-size: summ($h5-base, multiply($text-increment, 2));}
+		&.large    {font-size: summ($h5-base, multiply($text-increment, 1));}
+		&.small    {font-size: subtract($h5-base, multiply($text-increment, 1));}
+		&.smaller  {font-size: subtract($h5-base, multiply($text-increment, 2));}
+		&.smallest {font-size: subtract($h5-base, multiply($text-increment, 3));}
+		@include media($phone, min){
+			            font-size: $h5-phablet;
+			&.largest  {font-size: summ($h5-phablet, multiply($text-increment, 3));}
+			&.larger   {font-size: summ($h5-phablet, multiply($text-increment, 2));}
+			&.large    {font-size: summ($h5-phablet, multiply($text-increment, 1));}
+			&.small    {font-size: subtract($h5-phablet, multiply($text-increment, 1));}
+			&.smaller  {font-size: subtract($h5-phablet, multiply($text-increment, 2));}
+			&.smallest {font-size: subtract($h5-phablet, multiply($text-increment, 3));}
+		}
+		@include media($tablet, min){
+			            font-size: $h5-tablet;
+			&.largest  {font-size: summ($h5-tablet, multiply($text-increment, 3));}
+			&.larger   {font-size: summ($h5-tablet, multiply($text-increment, 2));}
+			&.large    {font-size: summ($h5-tablet, multiply($text-increment, 1));}
+			&.small    {font-size: subtract($h5-tablet, multiply($text-increment, 1));}
+			&.smaller  {font-size: subtract($h5-tablet, multiply($text-increment, 2));}
+			&.smallest {font-size: subtract($h5-tablet, multiply($text-increment, 3));}
+		}
+	}
+
+	// .h6, h6{
 	// 	                               font-size: $h6-base;
 	// 	@include media($phone, min){   font-size: $h6-phablet;}
 	// 	@include media($tablet, min){  font-size: $h6-tablet; }
 	// }
-	h4, .h4 {
+	h6, .h6 {
 		            font-size: $h6-base;
 		            letter-spacing: -0.015em;
 		&.largest  {font-size: summ($h6-base, multiply($text-increment, 3));}
