@@ -30,3 +30,7 @@
     background: white;
     opacity: .9;
 }*/
+.firstSlide .panel svg {
+  width: 27px;
+  height: 27px;
+}
