@@ -1,4 +1,4 @@
 function gotoReel(){
-  window.changeSlide('increase');
+  window.changeSlide('2');
 }
 setTimeout(gotoReel, 2500);
