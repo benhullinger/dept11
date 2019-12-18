@@ -1104,7 +1104,7 @@ img.rounded {
 }
 .slide.whiteSlide {
   color: #202020;
-  background: #ccc;
+  background: rgba(255,255,255,.9);
 }
 
 .content {
