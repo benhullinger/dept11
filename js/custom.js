@@ -1,4 +1,4 @@
-function gotoReel(){
-  window.changeSlide('2');
-}
-setTimeout(gotoReel, 2500);
+// function gotoReel(){
+//   window.changeSlide('2');
+// }
+// setTimeout(gotoReel, 2500);

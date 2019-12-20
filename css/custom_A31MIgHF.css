@@ -34,3 +34,26 @@
   width: 27px;
   height: 27px;
 }
+
+.darkCyan {
+  background: #00728c !important;
+  color: #fff !important;
+}
+.darkCyan svg {
+  fill: #fff !important;
+}
+
+.text-darkCyan {
+  color: #00728c !important;
+}
+.text-darkCyan.button svg {
+  fill: #00728c !important;
+}
+
+.stroke.button.darkCyan {
+  color: #00728c !important;
+  border-color: #00728c !important;
+}
+.stroke.button.darkCyan svg {
+  fill: #00728c !important;
+}
